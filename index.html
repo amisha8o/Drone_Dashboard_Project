@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Drone Monitoring Dashboard</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+    <!-- BOOTSTRAP -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2 class="logo">
+            DRONE-X
+        </h2>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="missions.html">
+                    <i class="fa fa-plane"></i>
+                    Missions
+                </a>
+            </li>
+
+            <li>
+                <a href="gps.html">
+                    <i class="fa fa-map"></i>
+                    GPS Tracking
+                </a>
+            </li>
+
+            <li>
+                <a href="camera.html">
+                    <i class="fa fa-video"></i>
+                    Camera Feed
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    <i class="fa fa-cog"></i>
+                    Settings
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h2>Drone Monitoring Dashboard</h2>
+
+                <p>
+                    Real-Time Drone Analytics System
+                </p>
+
+            </div>
+
+            <div class="top-right">
+
+                <i class="fa fa-bell notification"
+                    onclick="alert('3 New Drone Alerts')"></i>
+
+                <button class="btn btn-primary dark-btn">
+                    Dark Mode
+                </button>
+
+                <img src="https://i.pravatar.cc/40"
+                    class="profile">
+
+            </div>
+
+        </div>
+
+
+        <!-- AI STATUS -->
+
+        <div class="row mt-4">
+
+            <div class="col-md-4">
+
+                <div class="card dashboard-card">
+
+                    <h5>AI Accuracy</h5>
+
+                    <h2>98%</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card dashboard-card">
+
+                    <h5>Objects Detected</h5>
+
+                    <h2>145</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card dashboard-card">
+
+                    <h5>Security Level</h5>
+
+                    <h2>HIGH</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATUS CARDS -->
+
+        <div class="row mt-4">
+
+            <div class="col-md-3">
+
+                <div class="card dashboard-card">
+
+                    <i class="fa fa-battery-three-quarters card-icon"></i>
+
+                    <h5>Battery</h5>
+
+                    <h2>87%</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="card dashboard-card">
+
+                    <i class="fa fa-location-dot card-icon"></i>
+
+                    <h5>Altitude</h5>
+
+                    <h2>120m</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="card dashboard-card">
+
+                    <i class="fa fa-satellite card-icon"></i>
+
+                    <h5>GPS Signal</h5>
+
+                    <h2>Strong</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="card dashboard-card">
+
+                    <i class="fa fa-plane-up card-icon"></i>
+
+                    <h5>Mission</h5>
+
+                    <h2 id="missionStatus">
+                        Inactive
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LIVE CAMERA + MISSION -->
+
+        <div class="row mt-5">
+
+            <div class="col-md-8">
+
+                <div class="card p-3">
+
+                    <h4>Live Drone Camera</h4>
+
+                    <div class="drone-area">
+
+                        <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png"
+                            class="flying-drone">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card p-3 mission-box">
+
+                    <h4>Mission Control</h4>
+
+                    <button class="btn btn-success mb-3"
+                        onclick="startMission()">
+
+                        Start Mission
+
+                    </button>
+
+                    <button class="btn btn-danger mb-3"
+                        onclick="stopMission()">
+
+                        Stop Mission
+
+                    </button>
+
+                    <button class="btn btn-warning"
+                        onclick="emergencyReturn()">
+
+                        Emergency Return
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ALERT PANEL -->
+
+        <div class="card mt-5 p-4 alert-panel">
+
+            <h4>Security Alerts</h4>
+
+            <div class="alert alert-danger mt-3">
+
+                Unauthorized Movement Detected Near Zone A
+
+            </div>
+
+            <div class="alert alert-warning">
+
+                Drone Battery Below 20%
+
+            </div>
+
+            <div class="alert alert-info">
+
+                AI Surveillance Running Normally
+
+            </div>
+
+        </div>
+
+
+        <!-- GPS + WEATHER -->
+
+        <div class="row mt-5">
+
+            <div class="col-md-8">
+
+                <div class="card p-3">
+
+                    <h4>Live GPS Tracking</h4>
+
+                    <iframe
+                        src="https://maps.google.com/maps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="350"
+                        style="border-radius:15px;border:none;">
+
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card p-4 weather-box">
+
+                    <h4>Weather Status</h4>
+
+                    <h1>28°C</h1>
+
+                    <p>Clear Sky</p>
+
+                    <hr>
+
+                    <p>Wind Speed : 12 km/h</p>
+
+                    <p>Humidity : 68%</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AI DETECTION -->
+
+        <div class="row mt-5">
+
+            <div class="col-md-6">
+
+                <div class="card p-4">
+
+                    <h4>AI Threat Detection</h4>
+
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
+                        class="ai-image">
+
+                    <div class="mt-4">
+
+                        <span class="badge bg-danger">
+                            Threat Detected
+                        </span>
+
+                        <span class="badge bg-warning">
+                            Motion Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="card p-4 radar-box">
+
+                    <h4>Drone Radar System</h4>
+
+                    <div class="radar-circle">
+
+                        <div class="radar-dot"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY TABLE -->
+
+        <div class="card mt-5 p-4">
+
+            <h4>Drone Activity Logs</h4>
+
+            <table class="table table-dark table-hover mt-3">
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Drone</th>
+                    <th>Status</th>
+                    <th>Location</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>DR101</td>
+                    <td>Drone-X1</td>
+
+                    <td>
+                        <span class="badge bg-success">
+                            Flying
+                        </span>
+                    </td>
+
+                    <td>Mumbai</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>DR102</td>
+                    <td>Drone-X2</td>
+
+                    <td>
+                        <span class="badge bg-danger">
+                            Offline
+                        </span>
+                    </td>
+
+                    <td>Delhi</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <!-- DRONE ANALYTICS -->
+
+        <div class="card mt-5 p-4">
+
+            <h2>Drone Analytics</h2>
+
+            <canvas id="myChart" height="100"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHART JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
