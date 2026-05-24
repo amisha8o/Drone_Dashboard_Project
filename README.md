@@ -3,6 +3,8 @@
 An advanced AI Powered Drone Surveillance Dashboard built using HTML, CSS, JavaScript, Bootstrap & Chart.js.
 This project provides a futuristic interface for monitoring drones, mission control, live analytics, GPS tracking, radar systems, and AI threat detection.
 
+---
+
 🌐 Live Features
 
 ✅ Real-Time Drone Monitoring
@@ -19,8 +21,11 @@ This project provides a futuristic interface for monitoring drones, mission cont
 ✅ Modern Cyberpunk Design
 ✅ Multi-Page Navigation
 
+---
 🖥️ Dashboard Preview
+
 ✨ Main Features
+
 📡 GPS Signal Monitoring
 🔋 Drone Battery Status
 🚁 Live Drone Camera Simulation
@@ -29,6 +34,7 @@ This project provides a futuristic interface for monitoring drones, mission cont
 🌦️ Weather Status Tracking
 🔔 Live Notifications
 🌙 Dark Theme Toggle
+
 🛠️ Tech Stack
 Frontend Technologies
 HTML5
@@ -37,6 +43,9 @@ JavaScript
 Bootstrap 5
 Font Awesome Icons
 Chart.js
+
+---
+
 📂 Project Structure
 Drone_Dashboard_Project/
 │
@@ -51,6 +60,7 @@ Drone_Dashboard_Project/
 │
 └── README.md
 
+---
 🚀 How To Run This Project
 Step 1 — Clone Repository
 git clone https://github.com/amisha8o/Drone_Dashboard_Project.git
